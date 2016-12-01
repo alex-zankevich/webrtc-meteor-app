@@ -1,13 +1,12 @@
 import React from 'react';
 
 import Header from './header/header.js';
-import LecturesList from './lectures/lectures_list.js';
 
-export default () => {
+export default (props) => {
 	return (
 		<div>
 			<Header />
-			<LecturesList />
+			{ props.children }
 		</div>
 	);
 };
