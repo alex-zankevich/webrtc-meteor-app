@@ -8,6 +8,10 @@ Meteor.methods({
 			sharedWith: [],
 			ownerId: this.userId
 		});
+	},
+
+	'lectures.remove': function(lecture) {
+		return Lectures.remove(lecture);
 	}
 });
 

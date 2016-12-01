@@ -6,3 +6,7 @@
 .nav-items-custom {
 	margin: 0 10px;
 }
+
+.list-group-item {
+	height: 55px;
+}

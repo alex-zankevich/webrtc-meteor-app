@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
-import { Lectures } from '../imports/collections/lectures.js';
+import { Lectures } from '../imports/collections/lectures';
 
 Meteor.startup(() => {
-  // code to run on server at startup
+	Meteor.publish('lectures', function() {
+			return Lectures.find({ ownerId: this.userId });
+	});
 });
