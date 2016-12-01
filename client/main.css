@@ -10,3 +10,20 @@
 .list-group-item {
 	height: 55px;
 }
+
+.lectures-share {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	margin: 10px;
+}
+
+.lectures-share .input-group {
+	width: 30%;
+}
+
+.lectures-share > div {
+	margin: 0 10px;
+}

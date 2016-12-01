@@ -11,6 +11,7 @@ class LecturesList extends Component {
 	renderList() {
 		return this.props.lectures.map((lecture) => {
 			const url = `/lectures/${lecture._id}`;
+
 			return (
 				<li className="list-group-item" key={lecture._id}>
 					<Link to={url}>Lecture: {lecture._id}</Link>
@@ -37,6 +38,7 @@ class LecturesList extends Component {
 
 export default createContainer(() => {
 	Meteor.subscribe('lectures');
+	Meteor.subscribe('sharedLectures');
 
 	return { lectures: Lectures.find({}).fetch() };
 }, LecturesList);

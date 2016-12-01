@@ -11,8 +11,7 @@ const routes = (
 	<Router history={browserHistory}>
 		<Route path="/" component={App}>
 			<IndexRoute component={LecturesList}></IndexRoute>
-			<Route path="lectures/:lectureId" component={LecturesMain}>
-
+			<Route path="lectures/:lectureId" component={ LecturesMain }>
 			</Route>
 		</Route>
 	</Router>
