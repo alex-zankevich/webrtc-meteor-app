@@ -9,8 +9,8 @@ import { Lectures } from '../imports/collections/lectures.js';
 
 const routes = (
 	<Router history={browserHistory}>
-		<Route path="/" component={App}>
-			<IndexRoute component={LecturesList}></IndexRoute>
+		<Route path="/" component={ App }>
+			<IndexRoute component={ LecturesList }></IndexRoute>
 			<Route path="lectures/:lectureId" component={ LecturesMain }>
 			</Route>
 		</Route>
