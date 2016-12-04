@@ -13,9 +13,11 @@ class LecturesMain extends Component {
 		}
 
 		return (
-			<div>
-				<LectureVideoStream />
-				<LectruesEditor lecture={ this.props.lecture } />
+			<div className="lecture-main">
+				<section>
+					<LectureVideoStream />
+					<LectruesEditor lecture={ this.props.lecture } />
+				</section>
 				<LecturesShare lecture={ this.props.lecture } />
 			</div>
 		);

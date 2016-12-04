@@ -16,8 +16,8 @@ export default class LectureVideoStream extends Component {
 	render() {
 		return (
 			<div className="col-xs-4">
+				<h5>Stream</h5>
 				<video ref="ownVideoStream"
-							 className="col-xs-4"
 							 id="own-video"
 							 muted="true"
 							 className="video-stream"
