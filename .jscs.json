@@ -21,7 +21,6 @@
     "allExcept": ["urlComments", "regex"]
   },
 
-  // "validateQuoteMarks": { "mark": "'", "escape": true },
   "disallowMixedSpacesAndTabs": "smart",
   "disallowTrailingWhitespace": false,
   "disallowMultipleLineStrings": true,

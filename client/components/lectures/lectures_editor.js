@@ -10,7 +10,7 @@ class LectruesEditor extends Component {
 
 	render() {
 		return (
-			<div className="col-xs-8 lecture-editor">
+			<div className="col-sm-12 col-md-8 lecture-editor">
 				<h5>Input</h5>
 				<CodeMirror
 					value={this.props.lecture.content}
