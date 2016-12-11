@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
+import { createContainer } from 'meteor/react-meteor-data';
+
 import Accounts from '../accounts';
+
 import { Link, browserHistory } from 'react-router';
 
-export default class Header extends Component {
+class Header extends Component {
 	onCreateClick(event) {
 		event.preventDefault();
 
 		Meteor.call('lectures.insert', (error, lectureId) => {
 			browserHistory.push(`/lectures/${lectureId}`);
 		});
+	}
+
+	renderCreate() {
+		if (this.props.user) {
+			return (
+				<li>
+					<a href="#" onClick={ this.onCreateClick }>Create room</a>
+				</li>
+			);
+		}
 	}
 
 	render() {
@@ -21,11 +34,11 @@ export default class Header extends Component {
 					<li>
 						<Accounts />
 					</li>
-					<li>
-						<a href="#" onClick={this.onCreateClick}>Create room</a>
-					</li>
+					{ this.renderCreate() }
 				</ul>
 			</nav>
 		);
 	}
 }
+
+export default createContainer(() => ({ user: Meteor.user() }), Header);
