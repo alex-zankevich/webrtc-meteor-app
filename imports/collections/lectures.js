@@ -6,6 +6,7 @@ Meteor.methods({
 			createdAt: new Date(),
 			content: '',
 			sharedWith: [],
+			ownerPeerId: null,
 			ownerId: this.userId
 		});
 	},
@@ -14,8 +15,12 @@ Meteor.methods({
 		return Lectures.remove(lecture);
 	},
 
-	'lectures.update': function(lecture, content) {
+	'lectures.updateContent': function(lecture, content) {
 		return Lectures.update(lecture._id, { $set: { content }});
+	},
+
+	'lectures.updatePeerId': function(lecture, ownerPeerId) {
+		return Lectures.update(lecture._id, { $set: { ownerPeerId }});
 	},
 
 	'lectures.share': function(lecture, email) {

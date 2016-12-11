@@ -3,7 +3,6 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 import { Lectures } from '../../../imports/collections/lectures';
 import LectruesEditor from './lectures_editor';
-import LecturesShare from './lectures_share';
 import LectureVideoStream from './lectures_video_stream';
 
 class LecturesMain extends Component {
@@ -15,10 +14,9 @@ class LecturesMain extends Component {
 		return (
 			<div className="lecture-main">
 				<section>
-					<LectureVideoStream />
+					<LectureVideoStream lecture={ this.props.lecture } />
 					<LectruesEditor lecture={ this.props.lecture } />
 				</section>
-				<LecturesShare lecture={ this.props.lecture } />
 			</div>
 		);
 	}

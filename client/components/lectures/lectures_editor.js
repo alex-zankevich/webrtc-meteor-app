@@ -5,7 +5,7 @@ import 'codemirror/mode/javascript/javascript';
 
 class LectruesEditor extends Component {
 	onEditorChange(content) {
-		Meteor.call('lectures.update', this.props.lecture, content);
+		Meteor.call('lectures.updateContent', this.props.lecture, content);
 	}
 
 	render() {
