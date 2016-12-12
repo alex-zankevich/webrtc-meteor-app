@@ -4,12 +4,12 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { Messages } from '../../../imports/collections/messages';
 
 class LecturesChat extends Component {
-	isOwnerMessage(message) {
-		return this.props.lecture.ownerId === message.user._id;
+	isUserMessage(message) {
+		return Meteor.user()._id === message.user._id;
 	}
 
 	renderIcon(message) {
-		if (this.isOwnerMessage(message)) {
+		if (this.isUserMessage(message)) {
 			return (
         <span className="chat-img pull-right">
 					<img src="http://placehold.it/50/FA6F57/fff&amp;text=ME" alt="User Avatar" className="img-circle" />
@@ -25,7 +25,7 @@ class LecturesChat extends Component {
 	}
 
 	renderHeader(message) {
-		if (this.isOwnerMessage(message)) {
+		if (this.isUserMessage(message)) {
 			return (
         <div className="header">
         	<small className="text-muted">
@@ -48,7 +48,7 @@ class LecturesChat extends Component {
 
 	renderMessages() {
 		return this.props.messages.map(message => (
-			<li className={(this.isOwnerMessage(message) ? "right" : "left") + " clearfix"} key={message._id}>
+			<li className={(this.isUserMessage(message) ? "right" : "left") + " clearfix"} key={message._id}>
 				{ this.renderIcon(message) }
 				<div className="chat-body clearfix">
 					{ this.renderHeader(message) }
