@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Lectures } from '../imports/collections/lectures';
+import { Messages } from '../imports/collections/messages';
 
 Meteor.startup(() => {
 	Meteor.publish('lectures', function() {
@@ -20,5 +21,9 @@ Meteor.startup(() => {
 				$elemMatch: { $eq: email }
 			}
 		});
+	});
+
+	Meteor.publish('messages', function() {
+		return Messages.find({});
 	});
 });

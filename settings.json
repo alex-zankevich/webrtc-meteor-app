@@ -1,0 +1,7 @@
+{
+  "galaxy.meteor.com": {
+     "env": {
+       "MONGO_URL": "mongodb://aliaksandrzankevich:alex191095@ds021741.mlab.com:21741/instalecture"
+     }
+   }
+}

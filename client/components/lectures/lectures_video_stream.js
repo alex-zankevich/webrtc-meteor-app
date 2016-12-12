@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Peer from 'peerjs';
 
 import LecturesShare from './lectures_share';
+import LecturesChat from './lectures_chat';
 
 const PEERJS_KEY = 'dvuqo0ibvld0wwmi';
 
@@ -114,6 +115,14 @@ export default class LectureVideoStream extends Component {
 		}
 	}
 
+	renderSharing() {
+		if (this.isOwner()) {
+			return (
+				<LecturesShare lecture={ this.props.lecture } />
+			);
+		}
+	}
+
 	render() {
 		return (
 			<div className="video-stream-main">
@@ -130,11 +139,12 @@ export default class LectureVideoStream extends Component {
 								 className="video-stream"
 								 autoPlay>
 					</video>
-					<div className="call-controls">
+					<div className="call-controls btn-group">
 						{ this.renderStreamConnect() }
 						<button className="btn btn-default" onClick={ this.endCall.bind(this) }>Disconnect</button>
-						<LecturesShare lecture={ this.props.lecture } />
+						{ this.renderSharing() }
 					</div>
+					<LecturesChat lecture={ this.props.lecture } />
 				</div>
 			</div>
 		);

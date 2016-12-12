@@ -21,7 +21,7 @@ class LecturesShare extends Component {
 
 	render() {
 		return (
-			<footer className="lectures-share">
+			<div className="lectures-share">
 				<div className="input-group">
 					<input ref="email" className="form-control" />
 					<div className="input-group-btn">
@@ -36,7 +36,7 @@ class LecturesShare extends Component {
 				<div className="btn-group">
 					{ this.renderShareList() }
 				</div>
-			</footer>
+			</div>
 		);
 	}
 }

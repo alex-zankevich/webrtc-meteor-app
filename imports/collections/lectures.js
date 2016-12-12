@@ -4,6 +4,8 @@ Meteor.methods({
 	'lectures.insert': function() {
 		return Lectures.insert({
 			createdAt: new Date(),
+			name: '',
+			description: '',
 			content: '',
 			sharedWith: [],
 			ownerPeerId: null,
@@ -21,6 +23,10 @@ Meteor.methods({
 
 	'lectures.updatePeerId': function(lecture, ownerPeerId) {
 		return Lectures.update(lecture._id, { $set: { ownerPeerId }});
+	},
+
+	'lectures.updateDescription': function(lecture, { name, description }) {
+		return Lectures.update(lecture._id, { $set: { name, description }});
 	},
 
 	'lectures.share': function(lecture, email) {

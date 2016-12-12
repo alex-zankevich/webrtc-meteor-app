@@ -8,30 +8,42 @@ class LecturesList extends Component {
 		Meteor.call('lectures.remove', lecture);
 	}
 
+	renderRemoveButton(lecture) {
+		if (Meteor.user()._id === lecture.ownerId) {
+			return (
+				<button
+					className="btn btn-danger"
+					onClick={ () => this.onLectureRemove(lecture) }>
+					Remove
+				</button>
+			);
+		}
+	}
+
 	renderList() {
 		return this.props.lectures.map((lecture) => {
 			const url = `/lectures/${lecture._id}`;
 
 			return (
-				<li className="list-group-item" key={lecture._id}>
-					<Link to={url}>Lecture: {lecture._id}</Link>
-					<span className="pull-right">
-						<button
-							className="btn btn-danger"
-							onClick={ () => this.onLectureRemove(lecture) }>
-							Remove
-						</button>
-					</span>
-				</li>
+				<div className="card" key={lecture._id}>
+					<div className="card-content">
+						<h3>{lecture.name}</h3>
+						<p>{lecture.description}</p>
+					</div>
+					<div className="card-action">
+						<Link to={url} className="btn btn-primary">Go to lesson</Link>
+						{ this.renderRemoveButton(lecture) }
+					</div>
+			  </div>
 			);
 		});
 	}
 
 	render() {
 		return (
-			<ul className="list-group">
+			<div>
 				{ this.renderList() }
-			</ul>
+			</div>
 		);
 	}
 }
