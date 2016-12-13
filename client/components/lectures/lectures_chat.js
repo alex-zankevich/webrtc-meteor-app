@@ -74,7 +74,7 @@ class LecturesChat extends Component {
 		return (
 			<div className="container chat-wrapper">
 				<div className="row">
-						<div className="col-md-5 col-lg-6 col-xs-12">
+						<div className="col-md-6 col-lg-6 col-xs-12">
 								<div className="panel panel-primary">
 										<div className="panel-body">
 												<ul className="chat">
