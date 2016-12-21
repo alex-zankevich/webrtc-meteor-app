@@ -5,11 +5,13 @@ export const DescriptionInfo = ({ name, description, owner }) => {
 		<div className="description-info">
 			<h3>{ name }</h3>
 			<h4>{ description }</h4>
-			{Meteor.userId() === owner &&
-			<button className="btn btn-default toggle-description"
-							data-toggle="collapse"
-							data-target=".description-wrapper">Edit descriptioin
-			</button>}
+			{
+				Meteor.userId() === owner &&
+					<button className="btn btn-default toggle-description"
+									data-toggle="collapse"
+									data-target=".description-wrapper">Edit descriptioin
+					</button>
+			}
 		</div>
 	);
 };
@@ -33,6 +35,11 @@ export class DescriptionEdit extends Component {
 		this.setState(updatedValue);
 
 		Meteor.call('lectures.updateDescription', this.props.lecture, updatedValue);
+	}
+
+	componentDidMount() {
+		this.refs.lectureName.value = this.state.name;
+		this.refs.lectureDescription.value = this.state.description;
 	}
 
 	render() {
