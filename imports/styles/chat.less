@@ -1,0 +1,42 @@
+@chat_item_border: #B3A9A9;
+@chat_body: #777777;
+
+.chat {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px dotted @chat_item_border;
+
+        &.left .chat-body {
+            margin-left: 60px;
+        }
+
+        &.right .chat-body {
+            margin-right: 60px;
+        }
+
+        &.chat-body p {
+            margin: 0;
+            color: @chat_body;
+        }
+    }
+}
+
+.chat-wrapper .panel-body {
+    height: 300px;
+    overflow-y: scroll;
+    height: 250px;
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon {
+    margin-right: 5px;
+}
+
+.chat-history {
+    height: 500px;
+    overflow: auto;
+}
